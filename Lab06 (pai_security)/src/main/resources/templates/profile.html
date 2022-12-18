@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang= "pl" xmlns:th="http://www.thymeleaf.org">
+    <head th:include="layout :: head"> </head>
+    <body>
+        <div th:include="layout :: navigationPanel"></div>
+        <h1 th:text="'Witaj ' +${user.name} + ' ' + ${user.surname}"></h1>
+        <div th:include="layout :: footer"></div>
+    </body>
+</html>

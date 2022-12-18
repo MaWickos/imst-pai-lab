@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang= "pl" xmlns:th="http://www.thymeleaf.org">
+    <head th:include="layout :: head"> </head>
+    <body>
+    <div th:include="layout :: navigationPanel"></div>
+    <h1>Lista użytkowników w BD:</h1>
+    <table th:if="${!#lists.isEmpty(allUsers)}">
+        <tr>
+            <th>ID</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Login</th>
+            <th>Hasło</th>
+        </tr>
+        <tr th:each="u: ${allUsers}">
+            <td th:text="${u.userid}"></td>
+            <td th:text="${u.name}"></td>
+            <td th:text="${u.surname}"></td>
+            <td th:text="${u.login}"></td>
+            <td th:text="${u.password}"></td>
+        </tr>
+    </table>
+    <div th:include="layout :: footer"></div>
+    </body>
+</html>

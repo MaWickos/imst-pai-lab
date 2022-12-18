@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang= "pl" xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head">
+        <meta charset="utf-8" />
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1"/>
+        <title>Spring login application - PL</title>
+        <style>
+            .footer {
+                position: fixed;
+                bottom: 0px;
+                left: 1px;
+                height: 50px;
+                width: 100%;
+            }
+            .nav > li {
+                display: inline;
+                background: limegreen;
+            }
+            a {
+                text-decoration: none;
+            }
+            th,td {
+                border: solid 1px black;
+                padding: 5px;
+            }
+            .error {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div th:fragment="navigationPanel" >
+            <ul class="nav">
+                <li sec:authorize="!isAuthenticated()">
+                    <a th:href="@{/register}">Zarejestruj się</a>
+                </li>
+                <li sec:authorize="isAuthenticated()">
+                    <a th:href="@{/profile}">Wyświetl swoje konto</a>
+                </li>
+                <li sec:authorize="isAuthenticated()">
+                    <a th:href="@{/users}">Wyświetl użytkowników</a>
+                </li>
+                <li sec:authorize="isAuthenticated()">
+                    <a th:href="@{/edit}">Edytuj konto</a>
+                </li>
+                <li sec:authorize="isAuthenticated()">
+                    <a th:href="@{/delete}">Usuń konto</a>
+                </li>
+                </li>
+                <li sec:authorize="!isAuthenticated()">
+                    <a th:href="@{/login}">Zaloguj się</a>
+                </li>
+                <li sec:authorize="isAuthenticated()">
+                    <a th:href="@{/logout}">Wyloguj się</a>
+                </li>
+            </ul>
+        </div>
+        <div th:fragment="footer">
+            <footer class="footer"><hr/>
+                <p>Politechnika Lubelska, wprowadzenie do Spring Boot</p>
+            </footer>
+        </div>
+    </body>
+</html>
